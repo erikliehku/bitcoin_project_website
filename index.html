@@ -83,8 +83,11 @@
                 <li>DeepWalk <a href="reference#ref8">[8]</a></li>
                 <li>node2vec <a href="reference#ref9">[9]</a></li>
                 <li>GraphSAGE <a href="reference#ref10">[10]</a></li>
+                <li>GraphWAVE <a href="reference#ref11">[11]</a></li>
+                <li>Directed GraphWAVE <a href="reference#ref12">[12]</a></li>
               </ul>
-              We would try to further improve the GCN algorithm to fit the Elliptic dataset to enhance the prediction accuracy.
+              We would try to further improve the GCN algorithm to fit the Elliptic dataset to enhance the prediction accuracy. The current idea is to create structual embeddings (e.g. GraphWAVE), then use GCN with target variables as those structual embeddings instead of labels (illicit or not).<br>
+              The intuition is that, illicit transtions located in different structual location will have different homophily behaviors.
             </p>
           </div>
         </div>
@@ -109,35 +112,35 @@
                 <tbody>
                   <tr>
                     <td>1</td>
-                    <td class="text-center">Literature Review + Project Website</td>
+                    <td class="text-center">Literature Review + Project Website<br>Revision of Linear Algebra, Vector Calculus</td>
                     <td class="text-center">Jun 2020</td>
                     <td class="text-center">60</td>
                     <td class="text-center">Completed</td>
                   </tr>
                   <tr class="bg-color-light-gray">
                     <td>2</td>
-                    <td class="text-center">Reproduction of [7] (except GCN) as baseline</td>
+                    <td class="text-center">Study Spectral Graph Theory<br>Graph Signal Processing and Heat Equation</td>
                     <td class="text-center">Jul 2020</td>
                     <td class="text-center">60</td>
                     <td class="text-center">In progress</td>
                   </tr>
                   <tr>
                     <td>3</td>
-                    <td class="text-center">Revision on Linear Algebra, Vector Calculus</td>
+                    <td class="text-center">Reproduction of [7] on GCN<br>Study GCN and GrapWAVE</td>
                     <td class="text-center">Aug 2020</td>
                     <td class="text-center">60</td>
                     <td class="text-center">Not started</td>
                   </tr>
                   <tr class="bg-color-light-gray">
                     <td>4</td>
-                    <td class="text-center">Study of Graph Spectural Theory</td>
+                    <td class="text-center">Study of Directed GraphWAVE, implement [12]</td>
                     <td class="text-center">Sep 2020</td>
                     <td class="text-center">60</td>
                     <td class="text-center">Not started</td>
                   </tr>
                   <tr>
                     <td>5</td>
-                    <td class="text-center">Study GCN, reproduction of [7] on GCN</td>
+                    <td class="text-center">Creating embeddings with [12] and train GCN</td>
                     <td class="text-center">Oct 2020</td>
                     <td class="text-center">60</td>
                     <td class="text-center">Not started</td>
