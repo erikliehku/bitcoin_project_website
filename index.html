@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Bitcoin Graph Learning</title>
+  <title>Decentral Bank</title>
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
@@ -30,11 +30,11 @@
         <!--Start Intro-->
         <div class="flex-row">
           <div class="flex-item flex-column">
-            <img class="image" src="img/bitcoin_txn.png">
+            <img class="image" src="img/logo2.png">
           </div>
           <div class="flex-item flex-column">
             <p class="text text-large">
-              <a target="_blank" href="https://erikliehku.github.io/">Lie Jen Houng</a>, eriklie@connect.hku.hk<br>
+              <a target="_blank" href="https://erikliehku.github.io/">Erik Lie</a>, eriklie@connect.hku.hk<br>
               <a target="_blank" href="https://www.hku.hk/">The University of Hong Kong</a><br>
               <a target="_blank" href="https://www.google.com.hk/maps/place/Pok+Fu+Lam/@22.2608807,114.1322448,16z/data=!3m1!4b1!4m5!3m4!1s0x3403ffed99e97bd3:0xa00c396826271b0!8m2!3d22.2679201!4d114.1290719?hl=en">Pokfulam, Hong Kong</a>
             </p>
@@ -45,14 +45,10 @@
             <h2 class="add-top-margin">Overview</h2>
             <hr>
             <p class="text add-top-margin">
-              Illegal transactions have been a central part of bitcoin story since the rise and fall of Silk Road.
-              Albeit its dark side, bitcoin’s usage has kept on increasing. Law enforcement and anti-money-laundering regulation therefore becomes important to prevent it from being used by criminals and terrorists.
+              Decentralized Finance (DeFi) emerging on Ethereum is showing promising result towards during a disintermediated financial system. But most protocols exist today lack a systematic way for managing risk and handling system insolvency. In this paper, we will discuss what is the common pitfall for solvency management in DeFi nowdays, and proposed that some constraints can be relieved. We will use balance sheet as tool, and explain how coverage ratio and quick ratio can be used for risk assessment of the system. Lastly, we will combine all these and propose a protocol that can unify all DeFi protocols (including but not limited to: token swapping, lending, stablecoins) into one system and thereby significantly increase capital efficiency.
             </p>
             <p class="text add-top-margin">
-              There are numerous attempts to identify illicit transactions in bitcoin, yet most of them only considered local, static features instead of its graph structure. One may imagine that illicit transactions tend to occur in neighborhoods, hence abandoning the graph structure of bitcoin is a waste of information that can potentially improve prediction accuracy.
-            </p>
-            <p class="text add-top-margin">
-              For this dissertation, we would like to explore the use of graph representation learning to identify illicit transactions in the bitcoin transaction graph.
+              For this project, we would like to lay out the design of Decentral Bank - an autonomous financial protocol constructed on public, decentralized blockchain (e.g.: Ethereum).
             </p>
           </div>
         </div>
@@ -63,31 +59,13 @@
           <div class="flex-item flex-column">
             <h3>Literature Review</h3>
             <p class="text">
-              There are numerous publications on bitcoin address classification already, for example <a href="reference#ref1">[1]</a>, 
-              <a href="reference#ref2">[2]</a>, <a href="reference#ref3">[3]</a>, <a href="reference#ref4">[4]</a>.
-              Yet, they didn't focus on bitcoin's inherent graph structure.
+              Existing DeFi protocols can be boardly be classified into Token Swapper (Uniswap <a href="reference#ref1">[1]</a>, Balancer <a href="reference#ref2">[2]</a> and Curve.fi <a href="reference#ref3">[3]</a>), Money Market (Compound <a href="reference#ref4">[4]</a> and Aave <a href="reference#ref5">[5]</a>), Stablecoins (MakerDAO <a href="reference#ref6">[6]</a>). We are working on a systematic review of DeFi papers and planning to release a survey paper afterwards.
             </p>
             <p class="text">
-              <a href="reference#ref5">[5]</a> has considered bitcoin as a hypergraph and suggested a motif structure to identify exchange. 
-              Yet it is still not fully utilizing the graph topology in full.
-            </p>
-            <p class="text">
-              <a href="reference#ref6">[6]</a> is the most similar study to our goal - it has considered the bitcoin's graph structure and used 
-              graph convolution network <a href="reference#ref7">[7]</a> as node embeddings for identify illict bitcoin transactions.
-              Furthermore, it has also provided a dataset, called the <i>Elliptic Dataset</i>, for public research and development on bitcoin AML algorithm.
-            </p>
+              Besides, theorotical development is needed as our protocol since it doesn't use Constant Function Market Maker <a href="reference#ref7">[7]</a> and two-asset model <a href="reference#ref8">[8]</a> for token swapping.
             <h3>Proposed methodology</h3>
             <p class="text">
-              Our work will be based on <a href="reference#ref6">[6]</a>, and extend it by testing more graph learning techniques, including:
-              <ul>
-                <li>DeepWalk <a href="reference#ref8">[8]</a></li>
-                <li>node2vec <a href="reference#ref9">[9]</a></li>
-                <li>GraphSAGE <a href="reference#ref10">[10]</a></li>
-                <li>GraphWAVE <a href="reference#ref11">[11]</a></li>
-                <li>Directed GraphWAVE <a href="reference#ref12">[12]</a></li>
-              </ul>
-              We would try to further improve the GCN algorithm to fit the Elliptic dataset to enhance the prediction accuracy. The current idea is to create structual embeddings (e.g. GraphWAVE), then use GCN with target variables as those structual embeddings instead of labels (illicit or not).<br>
-              The intuition is that, illicit transtions located in different structual location will have different homophily behaviors.
+              We will use balance sheet as tool, and explain how coverage ratio and quick ratio can be used for risk assessment of the system, eventually unify all DeFi protocols (including but not limited to: token swapping, lending, stablecoins) into one system and thereby significantly increase capital efficiency.
             </p>
           </div>
         </div>
@@ -112,51 +90,44 @@
                 <tbody>
                   <tr>
                     <td>1</td>
-                    <td class="text-center">Literature Review + Project Website<br>Revision of Linear Algebra, Vector Calculus</td>
-                    <td class="text-center">Jun 2020</td>
-                    <td class="text-center">60</td>
+                    <td class="text-center">System Design</td>
+                    <td class="text-center">Aug 2020</td>
+                    <td class="text-center">150</td>
                     <td class="text-center">Completed</td>
                   </tr>
                   <tr class="bg-color-light-gray">
                     <td>2</td>
-                    <td class="text-center">Study Spectral Graph Theory<br>Graph Signal Processing and Heat Equation</td>
-                    <td class="text-center">Jul 2020</td>
-                    <td class="text-center">60</td>
-                    <td class="text-center">In progress</td>
+                    <td class="text-center">AMM Study</td>
+                    <td class="text-center">Oct 2020</td>
+                    <td class="text-center">100</td>
+                    <td class="text-center">Completed</td>
                   </tr>
                   <tr>
                     <td>3</td>
-                    <td class="text-center">Reproduction of [7] on GCN<br>Study GCN and GrapWAVE</td>
-                    <td class="text-center">Aug 2020</td>
-                    <td class="text-center">60</td>
-                    <td class="text-center">Not started</td>
+                    <td class="text-center">Risk and Attack</td>
+                    <td class="text-center">Nov 2020</td>
+                    <td class="text-center">100</td>
+                    <td class="text-center">Completed</td>
                   </tr>
                   <tr class="bg-color-light-gray">
                     <td>4</td>
-                    <td class="text-center">Study of Directed GraphWAVE, implement [12]</td>
-                    <td class="text-center">Sep 2020</td>
-                    <td class="text-center">60</td>
-                    <td class="text-center">Not started</td>
+                    <td class="text-center">Economic Analysis</td>
+                    <td class="text-center">Dec 2020</td>
+                    <td class="text-center">100</td>
+                    <td class="text-center">Completed</td>
                   </tr>
                   <tr>
                     <td>5</td>
-                    <td class="text-center">Creating embeddings with [12] and train GCN</td>
-                    <td class="text-center">Oct 2020</td>
-                    <td class="text-center">60</td>
-                    <td class="text-center">Not started</td>
+                    <td class="text-center">Literature Review</td>
+                    <td class="text-center">Jan 2020</td>
+                    <td class="text-center">100</td>
+                    <td class="text-center">In Progress</td>
                   </tr>
                   <tr class="bg-color-light-gray">
-                    <td>4</td>
-                    <td class="text-center">GCN Improvement</td>
-                    <td class="text-center">Feb 2020</td>
-                    <td class="text-center">240</td>
-                    <td class="text-center">Not started</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
+                    <td>6</td>
                     <td class="text-center">Final report</td>
                     <td class="text-center">Mar 2021</td>
-                    <td class="text-center">60</td>
+                    <td class="text-center">50</td>
                     <td class="text-center">Not started</td>
                   </tr>
                 </tbody>
