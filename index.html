@@ -34,9 +34,11 @@
           </div>
           <div class="flex-item flex-column">
             <p class="text text-large">
-              <a target="_blank" href="https://erikliehku.github.io/">Erik Lie</a>, eriklie@connect.hku.hk<br>
+              <a target="_blank" href="https://erikliehku.github.io/">Lie Jen Houng</a>, eriklie@connect.hku.hk<br>
               <a target="_blank" href="https://www.hku.hk/">The University of Hong Kong</a><br>
-              <a target="_blank" href="https://www.google.com.hk/maps/place/Pok+Fu+Lam/@22.2608807,114.1322448,16z/data=!3m1!4b1!4m5!3m4!1s0x3403ffed99e97bd3:0xa00c396826271b0!8m2!3d22.2679201!4d114.1290719?hl=en">Pokfulam, Hong Kong</a>
+              <a target="_blank" href="https://www.google.com.hk/maps/place/Pok+Fu+Lam/@22.2608807,114.1322448,16z/data=!3m1!4b1!4m5!3m4!1s0x3403ffed99e97bd3:0xa00c396826271b0!8m2!3d22.2679201!4d114.1290719?hl=en">Pokfulam, Hong Kong</a><br>
+              <br>
+              Supservisor: <a target="_blank" href="https://www.cs.hku.hk/people/academic-staff/smyiu">Professor S.M. Yiu</a>
             </p>
           </div>
         </div>
@@ -57,16 +59,83 @@
         <!--Start Text Only-->
         <div class="flex-row">
           <div class="flex-item flex-column">
-            <h3>Literature Review</h3>
+            <h2>Decentralized Finance</h2>
+            <hr>
             <p class="text">
-              Existing DeFi protocols can be boardly be classified into Token Swapper (Uniswap <a href="reference#ref1">[1]</a>, Balancer <a href="reference#ref2">[2]</a> and Curve.fi <a href="reference#ref3">[3]</a>), Money Market (Compound <a href="reference#ref4">[4]</a> and Aave <a href="reference#ref5">[5]</a>), Stablecoins (MakerDAO <a href="reference#ref6">[6]</a>). We are working on a systematic review of DeFi papers and planning to release a survey paper afterwards.
+              While we have a comprehensive survey paper discussing what is DeFi, it is too pedantic to put on the project website. Instead, we direct interested to this video on youtube to understand what decentralized finance is:
+            </p>
+            <div class="flex-item flex-column">
+              <iframe class="iframe-in-body" src="https://www.youtube.com/embed/k9HYC0EJU6E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p class="text">
+              A sample DeFi project, Uniswap, can be accessed <a href="https://uniswap.org">here</a>.
+            </p>
+          </div>
+        </div>
+        <!-------------------------------------------------------------------------------------------->
+        <!--Start Text Only-->
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2>Our Design</h2>
+            <hr>
+            <p class="text">
+              Existing DeFi protocols can be boardly be classified into Token Swapper (Uniswap <a href="reference#ref1">[1]</a>, Balancer <a href="reference#ref2">[2]</a> and Curve.fi <a href="reference#ref3">[3]</a>), Money Market (Compound <a href="reference#ref4">[4]</a> and Aave <a href="reference#ref5">[5]</a>), Stablecoins (MakerDAO <a href="reference#ref6">[6]</a>). Decentral bank's design allows integrating all the above protocols into an all-in-one, single system.
             </p>
             <p class="text">
-              Besides, theorotical development is needed as our protocol since it doesn't use Constant Function Market Maker <a href="reference#ref7">[7]</a> and two-asset model <a href="reference#ref8">[8]</a> for token swapping.
-            <h3>Proposed methodology</h3>
+              Besides, theorotical development is needed as our protocol since it doesn't use Constant Function Market Maker <a href="reference#ref7">[7]</a> and two-asset model <a href="reference#ref8">[8]</a> for token swapping. Instead, Decentral Bank relies on single token's coverage rate for defining the curvature.
             <p class="text">
               We will use balance sheet as tool, and explain how coverage ratio and quick ratio can be used for risk assessment of the system, eventually unify all DeFi protocols (including but not limited to: token swapping, lending, stablecoins) into one system and thereby significantly increase capital efficiency.
             </p>
+          </div>
+        </div>
+        <div class="flex-row">
+          <div class="flex-item flex-item-stretch flex-column">
+            <img class="image" src="img/system_actors.png">
+          </div>
+          <div class="flex-item flex-item-stretch flex-column">
+            <p class="text">
+              The system can be described as Actors performing actions against Pools. Actors can be classified into 5 groups: <br><br>
+              <i>Liquidity Providers</i>. They provide capital to the system, expecting rewards (i.e.: dividend) to be paid upon withdrawal. <br>
+              <i>Casual Users</i>. They perform actions (e.g.: swap, borrow) on the system. They can access the system services with fees. <br>
+              <i>Arbitrageurs</i>. They are paid for helping the system to restore equilibrium via swapping. <br>
+              <i>Stakers</i>. They are governance token holders who stake their governance tokens, expecting rewards (i.e.: system surplus) to be paid upon unstake. <br>
+              <i>Keepers</i>. They are paid for helping the system to liquidate bad loans (that are close to or already default).
+            </p>
+          </div>
+        </div>
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h3>AMM Design</h3>
+            <p class="text">
+              In traditional exchange models (i.e.: order book), liquidity is provided by market makers who place limit orders in the order book. When a large buy order is being executed, the average price will increase as the order needs to sweep through higher part of the order book to source for sufficient liquidity. This phenomenon is called <i>price slippage</i>.
+            </p>
+            <p class="text">
+              In a token swapper model, the order book no longer exists, and the liquidity provider has given up their right to set a price. It becomes the system’s sole responsibility to determine a proper algorithm for setting the exchange rate and slippage. As a result, we need to determine an algorithm that has a similar effect as price slippage to penalize large orders. This algorithm is known as an <i>automated market maker</i>.
+            </p>
+            <p class="text">
+              Our proposed AMM will be used for digital asset exchange. To obtain the price information, price oracles such as Chainlink <a href="reference#ref9">[9]</a> will be used and the AMM determines the price slippage. Upon token swapping, liquidity for one token is improved while it is reduced for the other token. This increases the solvency risk for the system since the under-covered position is exposed to exchange rate risk. From this perspective, it is reasonable to establish price slippage as a function of coverage ratio. To our knowledge, we are the first to link up AMM with system's solvency risk, enabling single-asset market model and open liquidity pool.
+            </p>
+            <p class="text">
+              <i>Price slippage curve</i>. Price slippage curve <img src="http://latex.codecogs.com/svg.latex?f" style="max-width: 300px;"> maps coverage ratio <img src="http://latex.codecogs.com/svg.latex?r_{c}" style="max-width: 300px;"> to <img src="http://latex.codecogs.com/svg.latex?f(r_{c})" style="max-width: 300px;"> such that its slope will become the price slippage. The price slippage curve should satisfy the following properties:
+            </p>
+            <ol class="nested">
+              <li><img src="http://latex.codecogs.com/svg.latex?f" style="max-width: 300px;"> is continuous</li>
+              <li><img src="http://latex.codecogs.com/svg.latex?f" style="max-width: 300px;"> is decreasing</li>
+              <li><img src="http://latex.codecogs.com/svg.latex?f" style="max-width: 300px;"> is convex</li>
+              <li><img src="http://latex.codecogs.com/svg.latex?f" style="max-width: 300px;"> is continuous</li>
+              <li><img src="http://latex.codecogs.com/svg.latex?f'(r_{c}) < \epsilon \; \mbox{for} \; r_{c} > \theta" style="max-width: 300px;"></li>
+            </ol>
+            <p class="text">
+              There are many choices for <img src="http://latex.codecogs.com/svg.latex?f" style="max-width: 300px;">. The one that our system will use:
+            </p>
+            <img class="image center" src="https://latex.codecogs.com/svg.image?f(x)&space;=&space;\left\{\begin{matrix}-x&space;&plus;&space;\frac{a&plus;b}{2}&space;&&space;\text{if&space;$0&space;\leq&space;x&space;<&space;a$}&space;\\\frac{(x-b)^2}{2(b-a)}&space;&&space;\text{if&space;$a&space;\leq&space;x&space;<&space;b$}&space;\\0&space;&&space;\text{if&space;$x&space;\geq&space;b$}&space;\\\end{matrix}\right." style="max-width: 300px;">
+            <p class="text">
+              where $a$ and $b$ are adjustable parameters.
+            </p>
+            <p class="text text-center graph-title">
+              Plot of price slippage curve <img src="http://latex.codecogs.com/svg.latex?f" style="max-width: 300px;"> and <img src="http://latex.codecogs.com/svg.latex?f'" style="max-width: 300px;"> (<img src="http://latex.codecogs.com/svg.latex?a = 0.4" style="max-width: 300px;"> and <img src="http://latex.codecogs.com/svg.latex?b = 1" style="max-width: 300px;">)
+            </p>
+            <img class="image center max-width-600 add-top-margin-small" src="img/graph_AMM.png">
           </div>
         </div>
         <!--End Text Only-->
@@ -82,8 +151,8 @@
                   <tr class="bg-color-gray">
                     <th>#</th>
                     <th class="text-center">Tasks</th>
-                    <th class="text-center">Est. completion time</th>
-                    <th class="text-center">Est. learning hours</th>
+                    <th class="text-center">Estimated Completion Time</th>
+                    <th class="text-center">Estimated Learning Hours</th>
                     <th class="text-center">Status</th>
                   </tr>
                 </thead>
@@ -91,44 +160,44 @@
                   <tr>
                     <td>1</td>
                     <td class="text-center">System Design</td>
-                    <td class="text-center">Aug 2020</td>
+                    <td class="text-center">August 2020</td>
                     <td class="text-center">150</td>
                     <td class="text-center">Completed</td>
                   </tr>
                   <tr class="bg-color-light-gray">
                     <td>2</td>
                     <td class="text-center">AMM Study</td>
-                    <td class="text-center">Oct 2020</td>
+                    <td class="text-center">October 2020</td>
                     <td class="text-center">100</td>
                     <td class="text-center">Completed</td>
                   </tr>
                   <tr>
                     <td>3</td>
                     <td class="text-center">Risk and Attack</td>
-                    <td class="text-center">Nov 2020</td>
+                    <td class="text-center">November 2020</td>
                     <td class="text-center">100</td>
                     <td class="text-center">Completed</td>
                   </tr>
                   <tr class="bg-color-light-gray">
                     <td>4</td>
                     <td class="text-center">Economic Analysis</td>
-                    <td class="text-center">Dec 2020</td>
+                    <td class="text-center">December 2020</td>
                     <td class="text-center">100</td>
                     <td class="text-center">Completed</td>
                   </tr>
                   <tr>
                     <td>5</td>
                     <td class="text-center">Literature Review</td>
-                    <td class="text-center">Jan 2020</td>
+                    <td class="text-center">January 2020</td>
                     <td class="text-center">100</td>
-                    <td class="text-center">In Progress</td>
+                    <td class="text-center">Completed</td>
                   </tr>
                   <tr class="bg-color-light-gray">
                     <td>6</td>
                     <td class="text-center">Final report</td>
-                    <td class="text-center">Mar 2021</td>
+                    <td class="text-center">March 2021</td>
                     <td class="text-center">50</td>
-                    <td class="text-center">Not started</td>
+                    <td class="text-center">Completed</td>
                   </tr>
                 </tbody>
               </table>
